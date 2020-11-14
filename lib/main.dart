@@ -5,6 +5,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  void answerQuestion() {
+    print('Answer Chosen');
+  }
+
   @override
   // This widget is the root of your application.
   Widget build(BuildContext context) {
@@ -12,6 +16,7 @@ class MyApp extends StatelessWidget {
       "What's your favorie color?",
       "What's your favorite animal?"
     ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -21,15 +26,17 @@ class MyApp extends StatelessWidget {
           children: <Widget>[
             Text('The Questions'),
             RaisedButton(
-              onPressed: null,
+              onPressed: () => this.answerQuestion(),
               child: Text('Answer 1'),
             ),
             RaisedButton(
-              onPressed: null,
+              onPressed: () => print('Answer 2 chosen'),
               child: Text('Answer 2'),
             ),
             RaisedButton(
-              onPressed: null,
+              onPressed: () => {
+                print('Answer 3 chosen'),
+              },
               child: Text('Answer 3'),
             ),
           ],

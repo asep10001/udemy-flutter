@@ -28,8 +28,18 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   Widget build(BuildContext context) {
     var questions = [
-      "What's your favorie color?",
-      "What's your favorite animal?"
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answers': ['Blue', 'Red', 'Black', 'White'],
+      },
+      {
+        'questionText': 'What\'s your favorite animal?',
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      },
+      {
+        'questionText': 'Who\'s your favorite instructor?',
+        'answers': ['Max', 'Max', 'Max', 'Max'],
+      },
     ];
 
     return MaterialApp(
@@ -42,14 +52,14 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Questions(
-              questions[_questionIndex],
+              questions[_questionIndex]['questionText'],
             ),
             Text(
               this.answer,
             ),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((e) => Answer(_answerQuestion, e))
+                .toList(),
           ],
         ),
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './questions.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -11,7 +13,7 @@ class MyApp extends StatefulWidget {
   }
 }
 
-class MyAppState extends State<MyApp>{
+class MyAppState extends State<MyApp> {
   String answer = '';
   var questionIndex = 0;
 
@@ -32,19 +34,29 @@ class MyAppState extends State<MyApp>{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My First App'),
+          title: Text(
+            'My First App',
+          ),
         ),
         body: Column(
           children: <Widget>[
-            Text(questions[questionIndex]),
-            Text(this.answer),
+            Questions(
+              questions[questionIndex],
+            ),
+            Text(
+              this.answer,
+            ),
             RaisedButton(
               onPressed: () => this.answerQuestion(),
-              child: Text('Answer 1'),
+              child: Text(
+                'Answer 1',
+              ),
             ),
             RaisedButton(
               onPressed: () => print('Answer 2 chosen'),
-              child: Text('Answer 2'),
+              child: Text(
+                'Answer 2',
+              ),
             ),
             RaisedButton(
               onPressed: () => {

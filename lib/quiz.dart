@@ -20,8 +20,8 @@ class Quiz extends StatelessWidget {
         Questions(
           questions[questionIndex]['questionText'],
         ),
-        ...(questions[questionIndex]['answers'] as List<String>)
-            .map((e) => Answer(answerQuestions, e))
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
+            .map((e) => Answer(()=>answerQuestions(e['score']), e['text']))
             .toList(),
       ]),
     );
